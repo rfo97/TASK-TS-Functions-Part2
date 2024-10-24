@@ -1,10 +1,10 @@
-# JS-Functions-Part1
+# JS-Functions-Part2
 
 ## Instructions
 
 - Fork and clone [this repository](https://github.com/JoinCODED/TASK-JS-Functions-Part2) to your `Development` folder.
   - ```bash
-    git clone git@github.com:JoinCODED/TASK-JS-Functions-Part1.git
+    git clone git@github.com:<your_username>/TASK-JS-Functions-Part2.git
     ```
 
 ### Running The Tests
