@@ -1,4 +1,9 @@
-const { greet, isOdd, oddsSmallerThan, squareOrDouble } = require("./index"); // Replace with the correct file name
+const {
+  greet,
+  isOdd,
+  oddsSmallerThan,
+  squareOrDouble,
+} = require("./functions"); // Replace with the correct file name
 
 describe("greet", () => {
   it("should log 'Hello <name>' when name is provided", () => {
