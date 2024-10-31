@@ -1,3 +1,5 @@
+const { faker } = require("@faker-js/faker");
+
 const {
   greet,
   isOdd,
@@ -8,18 +10,25 @@ const {
 describe("greet", () => {
   it("should log 'Hello <name>' when name is provided", () => {
     console.log = jest.fn(); // Mock console.log
-    greet("Hamza");
-    expect(console.log).toHaveBeenCalledWith("Hello Hamza");
+    const name = faker.person.firstName();
+    greet(name);
+    expect(console.log).toHaveBeenCalledWith(`Hello ${name}`);
   });
 });
 
 describe("isOdd", () => {
+  const numbers = Array(50)
+    .fill(0)
+    .map(() => Math.floor(Math.random() * 100));
+  const odds = numbers.filter((n) => n % 2);
+  const evens = numbers.filter((n) => !(n % 2));
+
   it("should return true if the number is odd", () => {
-    expect(isOdd(7)).toBe(true);
+    odds.forEach((n) => expect(isOdd(n)).toBe(true));
   });
 
   it("should return false if the number is even", () => {
-    expect(isOdd(10)).toBe(false);
+    evens.forEach((n) => expect(isOdd(n)).toBe(false));
   });
 
   it("should return false for zero", () => {
@@ -28,12 +37,18 @@ describe("isOdd", () => {
 });
 
 describe("oddsSmallerThan", () => {
-  it("should return the correct number of odd numbers smaller than the input", () => {
-    expect(oddsSmallerThan(7)).toBe(3); // Odd numbers: 1, 3, 5
+  const numbers = Array(50)
+    .fill(0)
+    .map(() => Math.floor(Math.random() * 100));
+  const odds = numbers.filter((n) => n % 2);
+  const evens = numbers.filter((n) => !(n % 2));
+
+  it("should return the correct number of odd numbers smaller than an odd number", () => {
+    odds.forEach((n) => expect(oddsSmallerThan(n)).toBe(Math.floor(n / 2)));
   });
 
-  it("should return the correct number of odd numbers smaller than a larger number", () => {
-    expect(oddsSmallerThan(15)).toBe(7); // Odd numbers: 1, 3, 5, 7, 9, 11, 13
+  it("should return the correct number of odd numbers smaller than an even number", () => {
+    evens.forEach((n) => expect(oddsSmallerThan(n)).toBe(n / 2));
   });
 
   it("should return 0 if there are no odd numbers smaller than 1", () => {
@@ -42,12 +57,18 @@ describe("oddsSmallerThan", () => {
 });
 
 describe("squareOrDouble", () => {
+  const numbers = Array(50)
+    .fill(0)
+    .map(() => Math.floor(Math.random() * 100));
+  const odds = numbers.filter((n) => n % 2);
+  const evens = numbers.filter((n) => !(n % 2));
+
   it("should return the square if the number is odd", () => {
-    expect(squareOrDouble(9)).toBe(81);
+    odds.forEach((n) => expect(squareOrDouble(n)).toBe(n * n));
   });
 
   it("should return double if the number is even", () => {
-    expect(squareOrDouble(16)).toBe(32);
+    evens.forEach((n) => expect(squareOrDouble(n)).toBe(2 * n));
   });
 
   it("should return 0 if the number is 0", () => {
