@@ -19,7 +19,7 @@ describe("greet", () => {
 describe("isOdd", () => {
   const numbers = Array(50)
     .fill(0)
-    .map(() => Math.floor(Math.random() * 100));
+    .map(() => faker.number.int({min: 1, max: 100}));
   const odds = numbers.filter((n) => n % 2);
   const evens = numbers.filter((n) => !(n % 2));
 
