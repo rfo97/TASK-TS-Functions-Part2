@@ -6,7 +6,7 @@
  * e.g.
  * greet("Hamza") logs "Hello Hamza"
  */
-function greet(name) {
+function greet(name: string) {
   // Your code here
 }
 
@@ -19,7 +19,7 @@ function greet(name) {
  * isOdd(7) -> true
  * isOdd(10) -> false
  */
-function isOdd(n) {
+function isOdd(n: number) {
   // Your code here
 }
 
@@ -32,7 +32,7 @@ function isOdd(n) {
  * oddsSmallerThan(7) -> 3
  * oddsSmallerThan(15) -> 7
  */
-function oddsSmallerThan(n) {
+function oddsSmallerThan(n: number) {
   // Your code here
 }
 
@@ -46,13 +46,8 @@ function oddsSmallerThan(n) {
  * squareOrDouble(16) -> 32
  * squareOrDouble(9) -> 81
  */
-function squareOrDouble(n) {
+function squareOrDouble(n: number) {
   // Your code here
 }
 
-module.exports = {
-  greet,
-  isOdd,
-  oddsSmallerThan,
-  squareOrDouble,
-};
+export { greet, isOdd, oddsSmallerThan, squareOrDouble };
