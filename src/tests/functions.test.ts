@@ -1,6 +1,6 @@
 import { faker } from "@faker-js/faker";
 
-import { greet, isOdd, oddsSmallerThan, squareOrDouble } from "./functions";
+import { greet, isOdd, oddsSmallerThan, squareOrDouble } from "../functions";
 
 describe("functions", () => {
   describe("greet", () => {
