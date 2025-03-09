@@ -1,3 +1,5 @@
+import { createLanguageService } from "typescript";
+
 /**
  * greet(name):
  * - Accepts a "name" parameter of type "string"
@@ -8,6 +10,7 @@
  */
 function greet(name: string): void {
   // Your code here
+ console.log(`Hello ${name}`)
 }
 
 /**
@@ -21,8 +24,10 @@ function greet(name: string): void {
  */
 function isOdd(n: number): boolean {
   // Your code here
-
-  return false; // replace false with what you see is fit
+  if(n%2 == 0 || n==0){
+    return false
+  }
+  return true; // replace false with what you see is fit
 }
 
 /**
@@ -36,8 +41,16 @@ function isOdd(n: number): boolean {
  */
 function oddsSmallerThan(n: number): number {
   // Your code here
-
-  return -1; // replace -1 with what you see is fit
+  var counter = 0;
+  if(n === 1) return 0;
+  n = n-1;
+  while (n > 0) {
+    if(n%2 !== 0){
+      counter++;
+    }
+    n--;
+  }
+  return counter; // replace -1 with what you see is fit
 }
 
 /**
@@ -52,8 +65,15 @@ function oddsSmallerThan(n: number): number {
  */
 function squareOrDouble(n: number): number {
   // Your code here
-
-  return -1; // replace -1 with what you see is fit
+  var result: number
+  if(n%2 !== 0){
+    result = Math.pow(n,2)
+  }
+  else{
+    result = n+n;
+  }
+  return result;
+   // replace -1 with what you see is fit
 }
 
 export { greet, isOdd, oddsSmallerThan, squareOrDouble };
